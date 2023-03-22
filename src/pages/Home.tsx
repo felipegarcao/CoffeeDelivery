@@ -17,13 +17,13 @@ export function Home() {
             </p>
             <div className="flex items-center mt-4 justify-between">
               <div className="flex items-center gap-2">
-                <div className="rounded-full bg-[#C47F17] p-3">
+                <div className="rounded-full bg-yellow-dark p-3">
                   <FiCalendar className="text-white" />
                 </div>
                 <span>Compra simples e segura</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="rounded-full bg-[#574F4D] p-3">
+                <div className="rounded-full bg-base-text p-3">
                   <FiCalendar className="text-white" />
                 </div>
                 <span>Embalagem mantém o café intacto</span>
@@ -31,13 +31,13 @@ export function Home() {
             </div>
             <div className="flex items-center mt-4 justify-between">
               <div className="flex items-center gap-2">
-                <div className="rounded-full bg-[#DBAC2C] p-3">
+                <div className="rounded-full bg-yellow p-3">
                   <FiCalendar className="text-white" />
                 </div>
                 <span>Entrega rápida e rastreada</span>
               </div>
               <div className="flex items-center gap-2 w-[294px]">
-                <div className="rounded-full bg-[#C47F17] p-3">
+                <div className="rounded-full bg-yellow-dark p-3">
                   <FiCalendar className="text-white" />
                 </div>
                 <span>O café chega fresquinho até você</span>

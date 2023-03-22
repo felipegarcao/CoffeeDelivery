@@ -1,14 +1,30 @@
-@import 'tailwindcss/base.css';
-@import 'tailwindcss/components.css';
-@import 'tailwindcss/utilities.css';
-
+@import "tailwindcss/base.css";
+@import "tailwindcss/components.css";
+@import "tailwindcss/utilities.css";
 
 @layer base {
-  h1, h3, h4, strong {
-    font-family: 'Baloo 2', cursive;
+  h1,
+  h3,
+  h4,
+  strong {
+    font-family: "Baloo 2", cursive;
   }
 
   p {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .stateChecked[data-state="unchecked"] {
+    background: #e6e5e5;
+  }
+
+  .stateChecked[data-state="unchecked"]:hover {
+    background: #d7d5d5;
+    transition: all 0.3s ease;
+  }
+
+  .stateChecked[data-state="checked"] {
+    background: #ebe5f9;
+    border: 1px solid #8047f8;
   }
 }

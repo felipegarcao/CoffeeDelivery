@@ -1,0 +1,108 @@
+{
+  "coffees": [
+    {
+      "id": 0,
+      "name": "Expresso Tradicional",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 9.9,
+      "image": "./src/assets/coffe.png",
+      "type": [
+        {
+          "id": "1",
+          "name": "Tradicional"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Expresso Americano",
+      "description": "Expresso diluído, menos intenso que o tradicional",
+      "price": 9.9,
+      "image": "./src/assets/coffe.png",
+      "type": [
+        {
+          "id": "1",
+          "name": "Tradicional"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Expresso Cremoso",
+      "description": "Café expresso tradicional com espuma cremosa",
+      "price": 9.9,
+      "image": "./src/assets/coffe.png",
+      "type": [
+        {
+          "id": "1",
+          "name": "Tradicional"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Expresso Gelado",
+      "description": "Bebida preparada com café expresso e cubos de gelo",
+      "price": 9.9,
+      "image": "./src/assets/coffe.png",
+      "type": [
+        {
+          "id": "1",
+          "name": "Tradicional"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Café com Leite",
+      "description": "Meio a meio de expresso tradicional com leite vaporizado",
+      "price": 9.9,
+      "image": "./src/assets/coffe.png",
+      "type": [
+        {
+          "id": "1",
+          "name": "Tradicional"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Latte",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 9.9,
+      "image": "./src/assets/coffe.png",
+      "type": [
+        {
+          "id": "1",
+          "name": "Tradicional"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Capuccino",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 9.9,
+      "image": "./src/assets/coffe.png",
+      "type": [
+        {
+          "id": "1",
+          "name": "Tradicional"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Macchiato",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 9.9,
+      "image": "./src/assets/coffe.png",
+      "type": [
+        {
+          "id": "1",
+          "name": "Tradicional"
+        }
+      ]
+    }
+  ]
+}
