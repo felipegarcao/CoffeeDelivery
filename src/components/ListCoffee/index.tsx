@@ -3,24 +3,37 @@ import { useEffect, useState } from "react";
 import { BsCartPlusFill } from "react-icons/bs";
 import { ListCoffeeProps } from "../../types/ListCoffee";
 import { api } from "../../services/api";
+import { formatPrice } from "../../util/format";
+import { useCart } from "../../hooks/useCart";
 
-interface Counters {
-  [id: number]: number;
+interface CartItemsAmount {
+  [key: number]: number;
 }
-
 export function ListCoffee() {
+  const { addProduct, cart, handleProductDecrement, handleProductsIncrement } = useCart();
+
+  const cartItemsAmount = cart.reduce((sumAmount, product) => {
+    sumAmount[product.id] = product.amount// acessando a chave de maneira dinâmica
+
+    console.log(sumAmount)
+    return sumAmount;
+  }, {} as CartItemsAmount)
 
   const [list, setList] = useState<ListCoffeeProps[]>([]);
 
   useEffect(() => {
-    api.get('/coffees').then(response => {
-      setList(response.data)
+    api.get<ListCoffeeProps[]>('/coffees').then(response => {
+      const data = response.data.map((product) => ({
+        ...product,
+        priceFormatted: formatPrice(product.price)
+      }))
+      setList(data)
     })
   }, []);
 
-
-
-
+  function handleAddProduct(id: number) {
+    addProduct(id)
+  }
 
   return (
     <div className="container mx-auto my-10">
@@ -45,19 +58,20 @@ export function ListCoffee() {
               </p>
               <div className="flex items-center justify-between w-9/12 mt-8">
                 <span>
-                  R$ <strong className="text-lg">{item.price}</strong>
+                  <strong className="text-lg">{item.priceFormatted}</strong>
                 </span>
                 <div className="flex items-center gap-2">
                   <div className="bg-base-button rounded p-2 flex items-center gap-3">
-                    <button className="text-purple text-md font-bold" >
+                    <button className="text-purple text-md font-bold">
                       +
                     </button>
-                    <span>1</span>
+                    <span>{cartItemsAmount[item.id] || 0}</span>
                     <button className="text-purple text-md font-bold">
                       -
                     </button>
                   </div>
                   <button
+                    onClick={() => handleAddProduct(item.id)}
                     className="bg-purple-dark text-white p-3 rounded"
                   >
                     <BsCartPlusFill />
