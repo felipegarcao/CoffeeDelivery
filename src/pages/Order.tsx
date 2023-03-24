@@ -8,13 +8,12 @@ import cartaoDebito from '../assets/icons/order/debito.png';
 import dinheiro from '../assets/icons/order/dinheiro.png';
 import { formatPrice } from "../util/format";
 import { useCart } from "../hooks/useCart";
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 export function Order() {
 
-  const { cart, removeProduct, orderAddress } = useCart();
+  const { cart, removeProduct, orderAddress, handleProductDecrement, handleProductsIncrement } = useCart();
 
   const cartFormatted = cart.map(product => ({
     ...product,
@@ -85,7 +84,7 @@ export function Order() {
               <Input placeholder="UF" onChange={e => setValue("uf", e.target.value)} />
             </div>
 
-            <button type="submit" className="p-3 uppercase text-white bg-yellow-dark rounded mt-3">confirmar dados</button>
+            <button type="submit" className="uppercase rounded p-3 flex items-center justify-center bg-yellow text-white hover:bg-yellow-dark transition-all ease-linear disabled:bg-base-hover disabled:text-white disabled:cursor-not-allowed mt-5">confirmar dados</button>
 
 
           </form>
@@ -134,11 +133,23 @@ export function Order() {
                     <img src={product.image} alt="" className="h-[64px] w-[64px]" />
                     <div className="flex flex-col">
                       <span>{product.name}</span>
-                      <button className="flex items-center  gap-2 bg-base-button w-2/3 p-1 rounded uppercase text-sm text-base-text" onClick={() => handleRemoveProduct(product.id)}>
-                        <FiTrash color="#8047F8" />
-                        <span>Remover</span>
-                      </button>
+                      <div className="flex gap-3">
+                        <button className="flex items-center  gap-2 bg-base-button w-2/3 p-1 rounded uppercase text-sm text-base-text" onClick={() => handleRemoveProduct(product.id)}>
+                          <FiTrash color="#8047F8" />
+                          <span>Remover</span>
+                        </button>
+                        <div className="bg-base-button rounded p-2 flex items-center gap-3">
+                          <button className="text-purple text-md font-bold" onClick={() => handleProductsIncrement(product)}>
+                            +
+                          </button>
+                          <span>{product.amount}</span>
+                          <button className="text-purple text-md font-bold disabled:text-base-hover disabled:cursor-not-allowed" onClick={() => handleProductDecrement(product)} disabled={product.amount <= 1}>
+                            -
+                          </button>
+                        </div>
+                      </div>
                     </div>
+
                   </div>
                   <strong>
                     R$ 9,90

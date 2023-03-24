@@ -61,14 +61,10 @@ export function ListCoffee() {
                   <strong className="text-lg">{item.priceFormatted}</strong>
                 </span>
                 <div className="flex items-center gap-2">
-                  <div className="bg-base-button rounded p-2 flex items-center gap-3">
-                    <button className="text-purple text-md font-bold">
-                      +
-                    </button>
+                  <div className="bg-base-button rounded py-2 px-4 flex items-center gap-3">
+
                     <span>{cartItemsAmount[item.id] || 0}</span>
-                    <button className="text-purple text-md font-bold">
-                      -
-                    </button>
+
                   </div>
                   <button
                     onClick={() => handleAddProduct(item.id)}
